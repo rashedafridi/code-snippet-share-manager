@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :code_snippet_share_manager, CodeSnippetShareManager.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "mysecretpassword",
   hostname: "localhost",
   database: "code_snippet_share_manager_dev",
   stacktrace: true,
