@@ -15,7 +15,33 @@ module.exports = {
     extend: {
       colors: {
         brand: "#FD4F00",
+        emDark: {
+          dark: "#010101",
+          DEFAULT: "#3C3B3B",
+          light: "#828282"
+        },
+        emOrange: {
+          dark: "#f06305",
+          DEFAULT: "#F2613F",
+          light: "#f7c29e"
+        },
+        emYellow: {
+          dark: "#FFB22C",
+          DEFAULT: "#FFDE4D",
+          light: "#F3FEB8"
+        }
+      },
+      fontFamily:{
+        brand: [
+          "workSans",
+          "sens-serif"
+        ]
+      },
+      fontWeight: {
+        regular:"normal",
+        bold: "bold"
       }
+
     },
   },
   plugins: [
