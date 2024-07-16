@@ -1,12 +1,10 @@
 ## create nav bar and style
 
-
 ```elixir
 # migreat scama
 mix ecto.migrate
 mix phx.server
 ```
-
 
 # what i have done
 

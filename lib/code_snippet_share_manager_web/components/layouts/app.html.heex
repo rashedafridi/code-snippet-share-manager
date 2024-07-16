@@ -1,27 +1,101 @@
-<header class="flex justify-between items-center px-6 py-3 bg-emDark overflow-hidden">
+<header class="flex justify-between items-center px-6 py-3 bg-emDark ">
   <div class="flex relative">
     <a href={~p"/"}>
-    <img src="/images/gist-logo.svg" alt="logo" class="h-8 w-auto" >
+      <img src="/images/gist-logo.svg" alt="logo" class="h-8 w-auto" />
     </a>
     <a href={~p"/"}>
-      <div class="test-white font-brand font-bold text-3xl">Gist</div>
+      <div class="test-white font-brand font-bold text-3xl mx-2 ">Gist</div>
     </a>
     <div>
-      <input type="text" 
-      class="rounded-lg focus:outline-none focus:border-emOrange-dark focus:ring-0 px-3 py-1 bg-emDark-dark placeholder-emDark-light text-white font-brand font-regular text-sm mr-5 border-white"
-      placeholder="Search..."
+      <input
+        type="text"
+        class="rounded-lg focus:outline-none focus:border-emOrange-dark focus:ring-0 px-3 py-1 bg-emDark-dark placeholder-emDark-light text-white font-brand font-regular text-sm mr-5 border-white"
+        placeholder="Search..."
       />
-      <button class="mt-2 mr-2 text-white text-[1rem] font-brand font-bold hover:text-emDark-light" >
+      <button class="mt-2 mr-2 text-white text-[1rem] font-brand font-bold hover:text-emDark-light">
         All Gists
       </button>
     </div>
   </div>
-  <div class="relative" >
-    <button class="img-down-arrow" type="button" id="user-menue-button" >
-      <img src="/images/user-image.svg" alt="Profile Image" class="round-img-padding w-8 h-8"/>
+  <div class="relative">
+    <button class="img-down-arrow" type="button" id="user-menue-button" phx-click={ CodeSnippetShareManagerWeb.Layouts.App.toggle_dropdown_menu() } >
+      <img src="/images/user-image.svg" alt="Profile Image" class="round-img-padding w-8 h-8" />
     </button>
+    <div
+      id="dropdown_menu"
+      class="dropdown-menu-arrow absolute right-0 mt-2 py-2 w-48 bg-emDark rounded-lg shadow-xl border border-white"
+      hidden="true"
+    >
+      <%= if false do %>
+        <.link
+          href={~p"/users/settings"}
+          class="menu-item border-b border-white border-opacity-50"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-0"
+        >
+          Signed in as <%= @current_user.email %>
+        </.link>
+        <.link
+          href="#"
+          class="menu-item border-b border-white border-opacity-50"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-1"
+        >
+          Your Gists
+        </.link>
+        <.link
+          href="#"
+          class="menu-item border-b border-white border-opacity-50"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-1"
+        >
+          Save Gists
+        </.link>
+        <.link
+          href={~p"/users/log_out"}
+          class="menu-item "
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-3"
+        >
+          Sign out
+        </.link>
+      <% else %>
+        <.link
+          href={~p"/users/log_in"}
+          class="menu-item border-b border-white border-opacity-50"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-3"
+        >
+          Sign In
+        </.link>
+        <.link
+          href={~p"/users/register"}
+          class="menu-item "
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-3"
+        >
+          Register
+        </.link>
+      <% end %>
+    </div>
   </div>
 </header>
+<main>
+<.flash_group flash={@flash} />
+<%= @inner_content %>
+</main>
 <%!-- <main class="px-4 py-20 sm:px-6 lg:px-8">
   <div class="mx-auto max-w-2xl">
     <.flash_group flash={@flash} />
