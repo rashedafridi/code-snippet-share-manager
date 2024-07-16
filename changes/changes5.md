@@ -36,3 +36,4 @@ mix phx.server
 
 - create a conditional base drop-down
 - setup Phoenix.LiveView.JS toggle  to toggle dropdown ref [doc](https://hexdocs.pm/phoenix_live_view/1.0.0-rc.6/Phoenix.LiveView.JS.html)
+- used Phoenix click listener like `phx-click-away`  ref [doc](https://hexdocs.pm/phoenix_live_view/bindings.html)
