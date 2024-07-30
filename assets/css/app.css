@@ -49,3 +49,8 @@
 .menu-item:hover {
     @apply hover:text-emDark-light
 }
+
+.em-orange-gradient{ 
+    background-image: linear-gradient(to bottom, #f06305, #943c01, #532303, #130800);
+    height: 225px;
+}
